@@ -13,6 +13,7 @@ const tableRoutes = require('./routes/tableRoutes');
 const orderRoutes = require('./routes/orderRoutes');
 const invoiceRoutes = require('./routes/invoiceRoutes');
 const paymentRoutes = require('./routes/paymentRoutes');
+const stockRoutes = require('./routes/stockRoutes');
 
 // Çevre değişkenlerini yükle
 dotenv.config();
@@ -40,6 +41,7 @@ app.use('/api/tables', tableRoutes);
 app.use('/api/orders', orderRoutes);
 app.use('/api/invoices', invoiceRoutes);
 app.use('/api/payments', paymentRoutes);
+app.use('/api/stocks', stockRoutes);
 
 // Test route
 app.get('/', (req, res) => {
