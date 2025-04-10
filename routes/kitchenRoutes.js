@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const kitchenController = require('../controllers/kitchenController');
-const { protect } = require('../middleware/authMiddleware');
+const { protect } = require('../middlewares/authMiddleware');
 
 // Tüm rotalar için authentication gerekli
 router.use(protect);
