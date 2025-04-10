@@ -84,6 +84,87 @@ Bu proje, işletmeler için kapsamlı bir yönetim sistemi API'si sunmaktadır. 
 - **Yetki Kontrolü**: Farklı kullanıcı rolleri için erişim kontrolleri
 - **Veri İzolasyonu**: Her firma sadece kendi verilerine erişebilir
 
+### Mutfak/Bar Yönetim Sistemi
+
+#### Özellikler
+- **Sipariş Takibi**
+  - Siparişlerin anlık durumlarını görüntüleme
+  - Ürün bazlı durum takibi
+  - Hazırlanma süreleri izleme
+  - Otomatik durum güncellemeleri
+
+- **Önceliklendirme Sistemi**
+  - Siparişlere öncelik atama (normal, yüksek, acil)
+  - Önceliğe göre sıralama ve filtreleme
+  - Dinamik öncelik güncelleme
+
+- **Personel Yönetimi**
+  - Siparişleri personele atama
+  - Personel bazlı iş yükü takibi
+  - Performans izleme
+
+- **Zaman Yönetimi**
+  - Başlangıç ve bitiş zamanları kaydı
+  - Hazırlanma süresi hesaplama
+  - Tahmini teslim süreleri
+
+#### API Endpoints
+
+##### Mutfak Siparişleri
+- `POST /api/kitchen/orders` - Yeni mutfak siparişi oluşturma
+  ```json
+  {
+    "orderId": "order_id",
+    "items": [
+      {
+        "productId": "product_id",
+        "quantity": 2,
+        "notes": "Az pişmiş"
+      }
+    ]
+  }
+  ```
+
+- `GET /api/kitchen/orders` - Tüm mutfak siparişlerini listeleme
+- `GET /api/kitchen/orders/active` - Aktif siparişleri listeleme
+
+##### Sipariş Durumu
+- `PUT /api/kitchen/orders/:orderId/status` - Sipariş durumunu güncelleme
+  ```json
+  {
+    "status": "hazırlanıyor",
+    "itemIndex": 0  // Opsiyonel, belirli bir ürünü güncellemek için
+  }
+  ```
+
+##### Öncelik Yönetimi
+- `PUT /api/kitchen/orders/:orderId/priority` - Sipariş önceliğini güncelleme
+  ```json
+  {
+    "priority": "yüksek"
+  }
+  ```
+
+##### Personel Ataması
+- `PUT /api/kitchen/orders/:orderId/assign` - Siparişi personele atama
+  ```json
+  {
+    "staffId": "staff_id"
+  }
+  ```
+
+#### Durum Kodları
+- `beklemede` - Sipariş henüz hazırlanmaya başlanmadı
+- `hazırlanıyor` - Sipariş mutfakta hazırlanıyor
+- `hazır` - Sipariş servise hazır
+- `teslim_edildi` - Sipariş masaya teslim edildi
+- `iptal` - Sipariş iptal edildi
+
+#### Öncelik Seviyeleri
+- `normal` - Standart sipariş önceliği
+- `yüksek` - Öncelikli sipariş
+- `acil` - Acil hazırlanması gereken sipariş
+
 ## Teknolojiler
 
 - Node.js
