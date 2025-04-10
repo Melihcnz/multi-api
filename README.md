@@ -54,7 +54,31 @@ Bu proje, işletmeler için kapsamlı bir yönetim sistemi API'si sunmaktadır. 
 - **Ödeme İptali**: Hatalı girilen ödemeleri iptal etme
 - **Fatura Bazlı Ödeme Özeti**: Bir faturaya ait tüm ödemeleri ve kalan tutarı görüntüleme
 
-### 9. Güvenlik Özellikleri
+### 9. Stok Yönetimi
+- **Stok Takibi**: Her ürün için detaylı stok bilgisi tutma
+- **Stok Hareketleri**: Giriş/çıkış işlemlerinin detaylı kaydı
+- **Minimum/Maksimum Stok**: Ürünler için minimum ve maksimum stok seviyesi belirleme
+- **Stok Uyarıları**: Minimum stok seviyesinin altına düşüldüğünde uyarı
+- **Birim Yönetimi**: Adet, kg, lt, paket gibi farklı birim tipleri
+- **Stok Geçmişi**: Her ürün için detaylı stok hareket geçmişi
+- **Hareket Nedenleri**: Satış, iade, fire, sayım, transfer gibi hareket tipleri
+- **Lokasyon Takibi**: Stokların bulunduğu lokasyonları kaydetme
+- **Sipariş Entegrasyonu**: Siparişlerle otomatik stok düşümü
+- **Kullanıcı Bazlı İzleme**: Hangi kullanıcının hangi stok hareketini yaptığını takip
+
+### 10. Personel Yönetimi
+- **Vardiya Sistemi**: Personel vardiya planlaması ve takibi
+- **Vardiya Tipleri**: Sabah, akşam, gece ve tam gün vardiyaları
+- **Mesai Takibi**: Normal ve fazla mesai süreleri hesaplama
+- **Mola Yönetimi**: Vardiya içi mola sürelerinin kaydı
+- **İzin Yönetimi**: Yıllık, hastalık, ücretsiz ve idari izin takibi
+- **İzin Hakları**: Personel bazlı izin hakkı kontrolü
+- **Onay Mekanizması**: İzin talepleri için onay süreci
+- **Belge Yönetimi**: İzin belgelerinin dijital olarak saklanması
+- **Vardiya Değişimi**: Personel arası vardiya değişim takibi
+- **Devam Takibi**: Personel giriş-çıkış kayıtları
+
+### 11. Güvenlik Özellikleri
 - **JWT Tabanlı Kimlik Doğrulama**: Tüm API istekleri için token gereklidir
 - **Şifre Hashleme**: Kullanıcı ve firma şifreleri bcrypt ile güvenli bir şekilde hashlenir
 - **Yetki Kontrolü**: Farklı kullanıcı rolleri için erişim kontrolleri
@@ -161,6 +185,26 @@ npm run dev
 - `GET /api/payments/:id` - Ödeme detayı görüntüleme
 - `PUT /api/payments/:id/cancel` - Ödeme iptal etme
 - `GET /api/payments/invoice/:invoiceId` - Fatura bazlı ödemeleri görüntüleme
+
+### Stok İşlemleri
+- `GET /api/stocks` - Tüm stokları listeleme
+- `POST /api/stocks` - Yeni stok kaydı oluşturma
+- `PUT /api/stocks/:id` - Stok bilgilerini güncelleme
+- `DELETE /api/stocks/:id` - Stok kaydını silme
+- `GET /api/stocks/:id/history` - Stok geçmişini görüntüleme
+- `POST /api/stocks/:id/movements` - Stok hareketi ekleme
+
+### Vardiya İşlemleri
+- `GET /api/staff/shifts` - Vardiya listesi
+- `POST /api/staff/shifts` - Yeni vardiya oluştur
+- `PUT /api/staff/shifts/:id` - Vardiya güncelle
+- `DELETE /api/staff/shifts/:id` - Vardiya sil
+
+### İzin İşlemleri
+- `GET /api/staff/leaves` - İzin listesi
+- `POST /api/staff/leaves` - Yeni izin talebi
+- `PUT /api/staff/leaves/:id` - İzin güncelle/onayla
+- `DELETE /api/staff/leaves/:id` - İzin talebi sil
 
 ## Kullanım Örnekleri ve Notlar
 
