@@ -22,7 +22,7 @@ const reportSchema = new mongoose.Schema({
         }
     },
     data: {
-        type: mongoose.Schema.Schema.Types.Mixed,
+        type: mongoose.Schema.Types.Mixed,
         required: true
     },
     summary: {
