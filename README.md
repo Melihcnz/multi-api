@@ -299,4 +299,8 @@ npm run dev
 
 - **Restoran/Kafe Yönetimi**: Masa, sipariş ve ödeme akışı restoran işletmeleri için uygundur
 - **Perakende Mağaza Yönetimi**: Ürün, stok ve müşteri yönetimi perakende işletmeler için kullanılabilir
-- **Fatura ve Ödeme Takibi**: Herhangi bir işletme türü için fatura ve ödeme takibini kolaylaştırır 
+- **Fatura ve Ödeme Takibi**: Herhangi bir işletme türü için fatura ve ödeme takibini kolaylaştırır
+
+## Lisans
+
+Bu proje MIT lisansı altında lisanslanmıştır. Detaylı bilgi için [LICENSE](LICENSE) dosyasına bakınız 
